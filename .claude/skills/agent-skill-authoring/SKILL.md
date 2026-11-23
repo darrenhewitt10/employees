@@ -22,7 +22,10 @@ Frontmatter between `---` lines (first line of the file), then the system prompt
 ## Procedure for a new or changed expert
 1. Check `docs/expert-roster.md` for overlap; prefer improving an existing agent or skill over adding one. Total agents must stay within 10-50.
 2. Reuse existing skills; create a new skill only for knowledge used by 2+ agents or clearly reusable.
-3. Write/update the agent file (mission, responsibilities, how you work, deliverables, works with, boundaries) and its `skills:` list (always include `project-context`).
-4. Update in the same change: `docs/expert-roster.md` (role and skill tables), `.claude/skills/expert-routing/SKILL.md` (routing rows), the orchestrator's `Agent(...)` tool allowlist, and the team table in `CLAUDE.md`.
+3. Write/update the agent file (mission, personality, knowledge-folder step, responsibilities, how you work, deliverables, works with, boundaries) and its `skills:` list (always include `project-context`). Every agent has:
+   - **A model** from `docs/agent-brains.md`: `opus` for deep strategy, legal and finance judgment or veto holders; `sonnet` for most specialist work; `haiku` for fast lookups and upkeep (haiku agents escalate judgment calls).
+   - **A persona:** a unique first name (prefixed in the description as `"Name - ..."`), a voice and a working style, in a `## Personality` section.
+   - **A knowledge folder** `knowledge/<agent-name>/README.md` listing what belongs there, and a `## Before answering: read your knowledge folder` section (copy it from an existing agent, changing the name).
+4. Update in the same change: `docs/expert-roster.md` (role and skill tables), `docs/agent-brains.md` (name, model, reason, voice, style), `.claude/skills/expert-routing/SKILL.md` (routing rows), the orchestrator's `Agent(...)` tool allowlist and expert list, and the team table in `CLAUDE.md`.
 5. Run `python3 .claude/scripts/validate_team.py` and fix every error.
 6. Summarize what changed and why.

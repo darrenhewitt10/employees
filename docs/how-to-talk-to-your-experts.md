@@ -31,6 +31,12 @@ Or @-mention it (type `@` and pick the agent, or type it out):
 @agent-validation-statistician What would you need to see before you'd believe a backtest with a Sharpe ratio of 2.5?
 ```
 
+Or use the expert's first name (all 34 are in [agent-brains.md](agent-brains.md)):
+
+```text
+Ask Ruth whether a -15% account drawdown limit is too loose for a first live month.
+```
+
 **Tips:**
 - Use the exact agent name from the roster (`tax-advisor`, `risk-manager`, `quant-researcher`…).
 - An expert stays in its lane. If part of your question belongs to someone else, it will say so and name them. When that happens, ask the team instead.
@@ -103,6 +109,7 @@ Why it's a good test: adviser-registration triggers, honest performance presenta
 
 - **Give the facts that change the answer:** amounts, which phase you're in, account type, deadlines. Without them, the team falls back to the defaults in [12-decisions-needed.md](12-decisions-needed.md) and says so.
 - **Ask for the format you want:** "as a decision memo", "as a checklist", "as requirements with acceptance criteria".
+- **Give an expert background material:** drop notes, past decisions or papers into `knowledge/<agent-name>/`. The expert reads that folder before every answer (no secrets or account numbers).
 - **Save the result:** add "…and save the answer to `docs/decisions/<name>.md`". The orchestrator only reads files; your main Claude session writes the answer into the repo.
 - **Follow up on one point:** after a team answer, ask the specific expert, e.g. "Ask the risk-manager to expand on its condition."
 - **Expect a few minutes and more usage:** a team question runs several agents, often in parallel. A single expert is quicker and cheaper.

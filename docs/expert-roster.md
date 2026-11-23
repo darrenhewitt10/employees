@@ -7,7 +7,7 @@
 
 **34 agents (32 domain experts + orchestrator + meta-agent) · 46 skills · 8 groups**
 
-All of them are built as Claude Code subagents in `.claude/agents/` and skills in `.claude/skills/`; see `CLAUDE.md` at the repo root for how to use the team.
+All of them are built as Claude Code subagents in `.claude/agents/` and skills in `.claude/skills/`; see `CLAUDE.md` at the repo root for how to use the team. Each agent's model, first name and personality are in [agent-brains.md](agent-brains.md), and each reads its own `knowledge/<agent-name>/` folder before answering.
 
 ## How this relates to the core build team
 

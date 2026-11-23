@@ -168,6 +168,45 @@ for x in sorted(set(re.findall(r"\b[a-z]+(?:-[a-z]+)+\b", routing))):
                    "-statistician", "-controller", "-advisor", "-designer")) and x not in agents:
         errors.append(f"expert-routing mentions unknown agent '{x}'")
 
+# ---- brains, personas and knowledge folders ----
+BRAINS = ROOT / "docs" / "agent-brains.md"
+KNOWLEDGE = ROOT / "knowledge"
+brains = {}
+if BRAINS.exists():
+    for m in re.finditer(r"^\| `([a-z0-9-]+)` \| ([^|]+?) \| \*\*([a-z]+)\*\* \|", BRAINS.read_text(encoding="utf-8"), re.M):
+        brains[m.group(1)] = (m.group(2).strip(), m.group(3))
+else:
+    errors.append("docs/agent-brains.md is missing")
+first_names = {}
+for name, fm in agents.items():
+    path = AGENTS / f"{name}.md"
+    body = path.read_text(encoding="utf-8")
+    if fm.get("model") not in {"opus", "sonnet", "haiku"}:
+        errors.append(f"{path}: model must be opus, sonnet or haiku (see docs/agent-brains.md)")
+    if name not in brains:
+        errors.append(f"docs/agent-brains.md has no row for `{name}`")
+    else:
+        first, model = brains[name]
+        if model != fm.get("model"):
+            errors.append(f"{path}: model '{fm.get('model')}' but docs/agent-brains.md says '{model}'")
+        if not (fm.get("description") or "").startswith(f"{first} - "):
+            errors.append(f"{path}: description should start with '{first} - '")
+        if first in first_names:
+            errors.append(f"first name '{first}' used by both {first_names[first]} and {name}")
+        first_names[first] = name
+    if "## Personality" not in body:
+        errors.append(f"{path}: missing '## Personality' section")
+    if f"knowledge/{name}/" not in body:
+        errors.append(f"{path}: system prompt must tell the agent to read knowledge/{name}/")
+    if not (KNOWLEDGE / name / "README.md").exists():
+        errors.append(f"knowledge/{name}/README.md is missing")
+for x in sorted(set(brains) - set(agents)):
+    errors.append(f"docs/agent-brains.md lists unknown agent `{x}`")
+if KNOWLEDGE.exists():
+    for d in sorted(p.name for p in KNOWLEDGE.iterdir() if p.is_dir()):
+        if d not in agents:
+            warnings.append(f"knowledge/{d}/ has no matching agent")
+
 for doc, label in [(ROSTER, "docs/expert-roster.md"), (CLAUDE_MD, "CLAUDE.md")]:
     text = doc.read_text(encoding="utf-8") if doc.exists() else ""
     for x in sorted(agents):

@@ -30,10 +30,10 @@ If experts disagree on a material point, or a mandatory reviewer raises a concer
 <2-4 sentence combined recommendation>
 
 ## Why
-- Key points, each attributed: (risk-manager), (tax-advisor)...
+- Key points, each attributed with first name and agent: (Ruth, risk-manager), (Cora, tax-advisor)...
 
 ## Where the experts disagreed
-- <point>: <position A (agent)> vs <position B (agent)> -> <resolution or owner decision>
+- <point>: <position A (Name, agent)> vs <position B (Name, agent)> -> <resolution or owner decision>
 
 ## Vetoes and required approvals
 - <none> | <who, what is blocked, what would clear it>
@@ -42,6 +42,6 @@ If experts disagree on a material point, or a mandatory reviewer raises a concer
 1. <action> - owner: <agent or owner>
 
 ## Experts consulted
-<agent names> · Confidence: high/medium/low
+<Name (agent), ...> · Confidence: high/medium/low
 ```
 Keep it shorter than the sum of the inputs. Do not invent facts no expert provided.
