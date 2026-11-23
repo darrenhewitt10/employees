@@ -49,6 +49,7 @@ will design, build, and operate a personal AI-assisted trading system.
 | 10 | [Operations & Security](10-operations-and-security.md) | Environments, security checklist, monitoring, incident runbook | Platform / SRE |
 | 11 | [Agent Team & Roadmap](11-agent-team-and-roadmap.md) | Agent roster, interaction rules, phased roadmap, first sprint | Orchestrator |
 | 12 | [Decisions Needed](12-decisions-needed.md) | Open questions for the owner, with safe defaults | Orchestrator |
+| — | [Expert Roster](expert-roster.md) | 32 advisory experts (one-line job descriptions) and 43 shared skills, with which agents use each | Engagement Lead |
 
 ## How agents should use these docs
 

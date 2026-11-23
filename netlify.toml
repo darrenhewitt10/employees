@@ -1,0 +1,7 @@
+# Publishes the docs/ folder as a static site.
+[build]
+  command = "npm ci && npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
