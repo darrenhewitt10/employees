@@ -51,6 +51,10 @@ will design, build, and operate a personal AI-assisted trading system.
 | 12 | [Decisions Needed](12-decisions-needed.md) | Open questions for the owner, with safe defaults | Orchestrator |
 | — | [Expert Roster](expert-roster.md) | 32 advisory experts (one-line job descriptions) and 43 shared skills, with which agents use each | Engagement Lead |
 
+## The expert team
+
+The roster is built as 34 Claude Code subagents (`.claude/agents/`) with 47 shared skills (`.claude/skills/`). `CLAUDE.md` at the repo root explains how to use them: `/ask-team <question>` for a combined answer from the right experts, or name an individual expert.
+
 ## How agents should use these docs
 
 - **Every agent** reads 01, 08, 11, and 12 first, then its owned docs.
