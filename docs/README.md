@@ -50,6 +50,7 @@ will design, build, and operate a personal AI-assisted trading system.
 | 11 | [Agent Team & Roadmap](11-agent-team-and-roadmap.md) | Agent roster, interaction rules, phased roadmap, first sprint | Orchestrator |
 | 12 | [Decisions Needed](12-decisions-needed.md) | Open questions for the owner, with safe defaults | Orchestrator |
 | — | [Expert Roster](expert-roster.md) | 32 advisory experts (one-line job descriptions) and 43 shared skills, with which agents use each | Engagement Lead |
+| — | [How to Talk to Your Experts](how-to-talk-to-your-experts.md) | Example prompts: ask one expert, ask the whole team, and multi-expert questions for the orchestrator | Technical Writer |
 
 ## The expert team
 

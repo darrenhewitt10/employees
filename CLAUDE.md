@@ -19,6 +19,8 @@ This repo holds the research and the **AI expert team** for building a personal 
 | To add, change or review agents and skills | Ask the `meta-agent` |
 | To check the team is consistent | `python3 .claude/scripts/validate_team.py` |
 
+Example prompts for each of these: `docs/how-to-talk-to-your-experts.md`.
+
 Claude also delegates automatically when a request matches an agent's description; the `orchestrator` is marked "use proactively" for cross-domain questions, as are `risk-manager` and `validation-statistician` for anything touching trading or performance claims.
 
 ## How the orchestrator works
